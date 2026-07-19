@@ -19,6 +19,42 @@ This project classifies images of well-known sports celebrities using classical 
 
 ---
 
+
+
+### 🖼️ Computer Vision Pipeline
+
+`mermaid
+graph TD
+    subgraph "Data Preprocessing"
+    A[Raw Image] -->|OpenCV Haar Cascade| B{Face Detection}
+    B -->|Face Found| C{Eye Detection}
+    C -->|2 Eyes Found| D(Crop Face Image)
+    end
+    
+    subgraph "Feature Extraction"
+    D --> E(Wavelet Transform PyWavelets)
+    E --> F[High-Frequency Edges]
+    D --> G[Raw Pixel Color Data]
+    F --> H(Vertical Stacking)
+    G --> H
+    H --> I[Combined Feature Vector]
+    end
+    
+    subgraph "Classification & API"
+    I --> J{Trained SVM Model}
+    J -->|Prediction| K[Celebrity ID]
+    K --> L[Flask JSON Response]
+    end
+    
+    classDef io fill:#f9f0ff,stroke:#8a2be2,stroke-width:2px,color:#000;
+    classDef core fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000;
+    classDef logic fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#000;
+    
+    class A,L io;
+    class B,C,D,E,H core;
+    class F,G,I,J,K logic;
+`
+
 ## ✨ Pipeline
 
 | Stage | What Happens |
