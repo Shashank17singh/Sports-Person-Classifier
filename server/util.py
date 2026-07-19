@@ -1,3 +1,4 @@
+from typing import List, Dict, Any, Optional
 import joblib
 import json
 import numpy as np
@@ -13,7 +14,18 @@ __class_name_to_number = {}
 __class_number_to_name = {}
 __model = None
 
-def classify_image(image_base64_data, file_path=None):
+def classify_image(image_base64_data: str, file_path: Optional[str] = None) -> List[Dict[str, Any]]:
+    """
+    Classifies a base64 encoded image or a local file image of a sports celebrity.
+    
+    Args:
+        image_base64_data (str): Base64 encoded string of the image.
+        file_path (Optional[str]): Optional path to a local image file.
+        
+    Returns:
+        List[Dict[str, Any]]: A list of dictionaries containing the predicted class, 
+                              class probabilities, and class dictionary.
+    """
     imgs = get_cropped_image_if_2_eyes(file_path, image_base64_data)
     result = []
     for img in imgs:
@@ -30,10 +42,22 @@ def classify_image(image_base64_data, file_path=None):
         })
     return result
 
-def class_number_to_name(class_num):
+def class_number_to_name(class_num: int) -> str:
+    """
+    Converts a model prediction integer back to the human-readable class name.
+    
+    Args:
+        class_num (int): The integer class label from the model.
+        
+    Returns:
+        str: The name of the sports celebrity.
+    """
     return __class_number_to_name[class_num]
 
-def load_saved_artifacts():
+def load_saved_artifacts() -> None:
+    """
+    Loads the serialized SVM model and class dictionary from disk into memory.
+    """
     print("loading saved artifacts...start")
     global __class_name_to_number
     global __class_number_to_name
@@ -51,13 +75,33 @@ def load_saved_artifacts():
 
     print("loading saved artifacts...done")
 
-def get_cv2_image_from_base64_string(b64str):
+def get_cv2_image_from_base64_string(b64str: str) -> np.ndarray:
+    """
+    Decodes a base64 string into a raw OpenCV image array.
+    
+    Args:
+        b64str (str): Base64 encoded image string.
+        
+    Returns:
+        np.ndarray: The decoded OpenCV image.
+    """
     encoded_data = b64str.split(',')[1]
     nparr = np.frombuffer(base64.b64decode(encoded_data), np.uint8)
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     return img
 
-def get_cropped_image_if_2_eyes(image_path, image_base64_data):
+def get_cropped_image_if_2_eyes(image_path: Optional[str], image_base64_data: str) -> List[np.ndarray]:
+    """
+    Uses Haar Cascades to detect faces and eyes. Returns the cropped face image 
+    only if at least two eyes are detected, ensuring high quality feature extraction.
+    
+    Args:
+        image_path (Optional[str]): Local file path to the image.
+        image_base64_data (str): Base64 encoded image.
+        
+    Returns:
+        List[np.ndarray]: A list of cropped face images as NumPy arrays.
+    """
     face_cascade = cv2.CascadeClassifier(
         os.path.join(BASE, 'opencv', 'haarcascades', 'haarcascade_frontalface_default.xml')
     )
