@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌟 Sports Person Classifier
+#  Sports Person Classifier
 
 **A machine learning web app that identifies sports celebrities from a photo — wavelet-based feature extraction, OpenCV face detection, and a Flask API**
 
@@ -13,7 +13,7 @@
 
 ---
 
-## 📖 Overview
+##  Overview
 
 This project classifies images of well-known sports celebrities using classical computer vision and machine learning. Faces are detected and cropped with OpenCV's Haar Cascades, cleaned to keep only images where both eyes are clearly visible, and turned into feature vectors using a wavelet transform. A trained classifier then predicts which celebrity is in the photo — all served through a Flask API and a simple browser UI.
 
@@ -21,7 +21,7 @@ This project classifies images of well-known sports celebrities using classical 
 
 
 
-### 🖼️ Computer Vision Pipeline
+###  Computer Vision Pipeline
 
 ```mermaid
 graph TD
@@ -55,19 +55,19 @@ graph TD
     class F,G,I,J,K logic;
 ```
 
-## ✨ Pipeline
+##  Pipeline
 
 | Stage | What Happens |
 |---|---|
-| 🔍 **Face & Eye Detection** | OpenCV Haar Cascades locate faces; images without two clearly visible eyes are discarded |
-| 🌊 **Feature Extraction** | A wavelet transform captures the key structural features of each cropped face |
-| 🧠 **Model Training** | Classifiers (SVM, Logistic Regression, Random Forest) are trained and tuned with `GridSearchCV` |
-| 🔌 **Prediction API** | A Flask server loads the saved model and serves predictions over REST |
-| 🖥️ **Web UI** | A browser-based interface for uploading a photo and viewing the predicted celebrity |
+|  **Face & Eye Detection** | OpenCV Haar Cascades locate faces; images without two clearly visible eyes are discarded |
+|  **Feature Extraction** | A wavelet transform captures the key structural features of each cropped face |
+|  **Model Training** | Classifiers (SVM, Logistic Regression, Random Forest) are trained and tuned with `GridSearchCV` |
+|  **Prediction API** | A Flask server loads the saved model and serves predictions over REST |
+|  **Web UI** | A browser-based interface for uploading a photo and viewing the predicted celebrity |
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 **Computer Vision** — OpenCV (Haar Cascade face & eye detection)
 **Machine Learning** — Scikit-Learn (SVM · Logistic Regression · Random Forest) · PyWavelets · NumPy
@@ -76,7 +76,7 @@ graph TD
 
 ---
 
-## 📂 Directory Structure
+##  Directory Structure
 
 ```
 Sports-Person-Classifier/
@@ -95,7 +95,7 @@ Sports-Person-Classifier/
 
 ---
 
-## ⚙️ Setup and Installation
+##  Setup and Installation
 
 ### Prerequisites
 
