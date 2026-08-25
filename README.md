@@ -23,7 +23,7 @@ This project classifies images of well-known sports celebrities using classical 
 
 ### 🖼️ Computer Vision Pipeline
 
-`mermaid
+```mermaid
 graph TD
     subgraph "Data Preprocessing"
     A[Raw Image] -->|OpenCV Haar Cascade| B{Face Detection}
@@ -53,7 +53,7 @@ graph TD
     class A,L io;
     class B,C,D,E,H core;
     class F,G,I,J,K logic;
-`
+```
 
 ## ✨ Pipeline
 
