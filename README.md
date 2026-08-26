@@ -2,7 +2,7 @@
 
 #  Sports Person Classifier
 
-**A machine learning web app that identifies sports celebrities from a photo — wavelet-based feature extraction, OpenCV face detection, and a Flask API**
+**A machine learning web app that identifies sports celebrities from a photo - wavelet-based feature extraction, OpenCV face detection, and a Flask API**
 
 [![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![OpenCV](https://img.shields.io/badge/OpenCV-Face%20Detection-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)](https://opencv.org/)
@@ -15,7 +15,7 @@
 
 ##  Overview
 
-This project classifies images of well-known sports celebrities using classical computer vision and machine learning. Faces are detected and cropped with OpenCV's Haar Cascades, cleaned to keep only images where both eyes are clearly visible, and turned into feature vectors using a wavelet transform. A trained classifier then predicts which celebrity is in the photo — all served through a Flask API and a simple browser UI.
+This project classifies images of well-known sports celebrities using classical computer vision and machine learning. Faces are detected and cropped with OpenCV's Haar Cascades, cleaned to keep only images where both eyes are clearly visible, and turned into feature vectors using a wavelet transform. A trained classifier then predicts which celebrity is in the photo - all served through a Flask API and a simple browser UI.
 
 ---
 
@@ -69,10 +69,10 @@ graph TD
 
 ##  Tech Stack
 
-**Computer Vision** — OpenCV (Haar Cascade face & eye detection)
-**Machine Learning** — Scikit-Learn (SVM · Logistic Regression · Random Forest) · PyWavelets · NumPy
-**Backend** — Python · Flask
-**Frontend** — HTML · CSS · JavaScript
+**Computer Vision** - OpenCV (Haar Cascade face & eye detection)
+**Machine Learning** - Scikit-Learn (SVM · Logistic Regression · Random Forest) · PyWavelets · NumPy
+**Backend** - Python · Flask
+**Frontend** - HTML · CSS · JavaScript
 
 ---
 
