@@ -104,6 +104,9 @@ def get_cropped_image_if_2_eyes(
     eye_cascade = cv2.CascadeClassifier(
         os.path.join(BASE, "opencv", "haarcascades", "haarcascade_eye.xml")
     )
+    if face_cascade.empty() or eye_cascade.empty():
+        print('Haar cascades missing!')
+        return []
     if image_path:
         img = cv2.imread(image_path)
     else:
