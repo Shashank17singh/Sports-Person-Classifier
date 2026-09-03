@@ -73,17 +73,17 @@ def load_saved_artifacts() -> None:
             __model = joblib.load(f)
     print("loading saved artifacts...done")
 def get_cv2_image_from_base64_string(b64str: str) -> np.ndarray:
-    """
-    Decodes a base64 string into a raw OpenCV image array.
-    Args:
-        b64str (str): Base64 encoded image string.
-    Returns:
-        np.ndarray: The decoded OpenCV image.
-    """
-    encoded_data = b64str.split(",")[1]
-    nparr = np.frombuffer(base64.b64decode(encoded_data), np.uint8)
-    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-    return img
+    try:
+        if "," in b64str:
+            encoded_data = b64str.split(",")[1]
+        else:
+            encoded_data = b64str
+        nparr = np.frombuffer(base64.b64decode(encoded_data), np.uint8)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        return img
+    except Exception as e:
+        print("Error decoding base64 string:", e)
+        return None
 def get_cropped_image_if_2_eyes(
     image_path: Optional[str], image_base64_data: str
 ) -> List[np.ndarray]:
@@ -108,6 +108,8 @@ def get_cropped_image_if_2_eyes(
         img = cv2.imread(image_path)
     else:
         img = get_cv2_image_from_base64_string(image_base64_data)
+    if img is None:
+        return []
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
     cropped_faces = []
