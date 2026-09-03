@@ -1,5 +1,4 @@
 Dropzone.autoDiscover = false;
-
 function init() {
     let dz = new Dropzone("#dropzone", {
         url: "/",
@@ -9,19 +8,15 @@ function init() {
         autoProcessQueue: false,
         method: "post",
         sending: function(file, xhr, formData) {
-            // do nothing on auto send
         }
     });
-
     dz.on("addedfile", function() {
         if (dz.files[1] != null) {
             dz.removeFile(dz.files[0]);
         }
     });
-
     dz.on("complete", function(file) {
         let imageData = file.dataURL;
-
         var url = "https://celebrity-face-recognition-xi.vercel.app/classify_image";
         $.post(url, {
             image_data: file.dataURL
@@ -33,9 +28,7 @@ function init() {
                 $("#error").show();
                 return;
             }
-
             let players = ["lionel_messi", "maria_sharapova", "roger_federer", "serena_williams", "virat_kohli"];
-
             let match = null;
             let bestScore = -1;
             for (let i = 0; i < data.length; ++i) {
@@ -45,7 +38,6 @@ function init() {
                     bestScore = maxScoreForThisClass;
                 }
             }
-
             if (match) {
                 $("#error").hide();
                 $("#resultHolder").show();
@@ -61,12 +53,10 @@ function init() {
             }
         });
     });
-
     $("#submitBtn").on('click', function(e) {
         dz.processQueue();
     });
 }
-
 $(document).ready(function() {
     console.log("ready!");
     $("#error").hide();
