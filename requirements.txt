@@ -1,6 +1,6 @@
 flask
 flask-cors
-opencv-python-headless
+opencv-python-headless<5.0.0
 numpy
 scikit-learn
 PyWavelets
