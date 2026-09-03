@@ -10,7 +10,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 __class_name_to_number = {}
 __class_number_to_name = {}
 __model = None
-def classify_image(
+def classify_image_impl(
     image_base64_data: str, file_path: Optional[str] = None
 ) -> List[Dict[str, Any]]:
     """
@@ -125,3 +125,11 @@ def get_cropped_image_if_2_eyes(
     return cropped_faces
 if __name__ == "__main__":
     load_saved_artifacts()
+
+
+def classify_image(image_base64_data: str, file_path: Optional[str] = None) -> Any:
+    try:
+        return classify_image_impl(image_base64_data, file_path)
+    except Exception as e:
+        import traceback
+        return [{'error': str(e), 'trace': traceback.format_exc()}]
