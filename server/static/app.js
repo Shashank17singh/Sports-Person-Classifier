@@ -16,11 +16,13 @@ function init() {
         }
     });
     dz.on("complete", function(file) {
-        let imageData = file.dataURL;
-        var url = "/classify_image";
-        $.post(url, {
-            image_data: file.dataURL
-        }, function(data, status) {
+        var reader = new FileReader();
+        reader.onload = function(event) {
+            let imageData = event.target.result;
+            var url = "/classify_image";
+            $.post(url, {
+                image_data: imageData
+            }, function(data, status) {
             console.log(data);
             if (!data || data.length == 0) {
                 $("#resultHolder").hide();
@@ -52,6 +54,8 @@ function init() {
                 }
             }
         });
+        };
+        reader.readAsDataURL(file);
     });
     $("#submitBtn").on('click', function(e) {
         dz.processQueue();
