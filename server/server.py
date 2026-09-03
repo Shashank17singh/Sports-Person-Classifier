@@ -34,18 +34,7 @@ def classify_image() -> Any:
         Flask Response: A JSON object containing the classification array.
     """
     image_data = request.form["image_data"]
-    
-    import cv2
-    try:
-        cv2_info = {
-            'version': getattr(cv2, '__version__', 'unknown'),
-            'file': getattr(cv2, '__file__', 'unknown'),
-            'dir': dir(cv2)
-        }
-    except Exception as e:
-        cv2_info = {'error': str(e)}
-    return jsonify({'cv2_info': cv2_info})
-
+    response = jsonify(util.classify_image(image_data))
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 if __name__ == "__main__":
