@@ -90,6 +90,7 @@ Sports-Person-Classifier/
     ├── static/                     # Frontend JS/CSS + sample images
     ├── templates/index.html        # Upload UI
     ├── util.py                     # Preprocessing + prediction logic
+    ├── wavelet.py                  # Wavelet transform implementation
     └── server.py                   # Flask entry point
 ```
 
