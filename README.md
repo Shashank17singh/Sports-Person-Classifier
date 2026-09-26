@@ -15,7 +15,7 @@
 
 ##  Overview
 
-Designed and implemented from the ground up, this project classifies images of well-known sports celebrities using classical computer vision and machine learning. Faces are detected and cropped with OpenCV's Haar Cascades, cleaned to keep only images where both eyes are clearly visible, and turned into feature vectors using a wavelet transform. A trained classifier then predicts which celebrity is in the photo - all served through a Flask API and a simple browser UI.
+Engineered a system to classify images of well-known sports celebrities using classical computer vision and machine learning. Faces are detected and cropped with OpenCV's Haar Cascades, cleaned to keep only images where both eyes are clearly visible, and turned into feature vectors using a wavelet transform. A trained classifier then predicts which celebrity is in the photo - all served through a Flask API and a simple browser UI.
 
 ---
 
