@@ -1,6 +1,6 @@
 <div align="center">
 
-#  Sports Person Classifier
+# Sports Person Classifier
 
 **A machine learning web app that identifies sports celebrities from a photo - wavelet-based feature extraction, OpenCV face detection, and a Flask API**
 
@@ -134,3 +134,9 @@ The API loads the trained model and starts listening for prediction requests.
 Once the server is running, open `http://localhost:5000` in your browser and upload an image to get a prediction. The UI is served directly by Flask from `server/templates/index.html`.
 
 ---
+
+
+---
+
+## Deployment
+- **Dashboard URL:** https://sports-person-classifier-xi.vercel.app/
