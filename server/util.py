@@ -1,18 +1,22 @@
-from typing import List, Dict, Any, Optional
-import joblib
-import json
-import numpy as np
 import base64
-import cv2
+import json
 import os
+from typing import Any
+
+import cv2
+import joblib
+import numpy as np
 from wavelet import w2d
+
 BASE = os.path.dirname(os.path.abspath(__file__))
 __class_name_to_number = {}
 __class_number_to_name = {}
 __model = None
+
+
 def classify_image(
-    image_base64_data: str, file_path: Optional[str] = None
-) -> List[Dict[str, Any]]:
+    image_base64_data: str, file_path: str | None = None
+) -> list[dict[str, Any]]:
     """
     Classifies a base64 encoded image or a local file image of a sports celebrity.
     Args:
@@ -46,6 +50,8 @@ def classify_image(
             }
         )
     return result
+
+
 def class_number_to_name(class_num: int) -> str:
     """
     Converts a model prediction integer back to the human-readable class name.
@@ -55,6 +61,8 @@ def class_number_to_name(class_num: int) -> str:
         str: The name of the sports celebrity.
     """
     return __class_number_to_name[class_num]
+
+
 def load_saved_artifacts() -> None:
     """
     Loads the serialized SVM model and class dictionary from disk into memory.
@@ -72,6 +80,8 @@ def load_saved_artifacts() -> None:
         with open(model_path, "rb") as f:
             __model = joblib.load(f)
     print("loading saved artifacts...done")
+
+
 def get_cv2_image_from_base64_string(b64str: str) -> np.ndarray:
     """
     Decodes a base64 string into a numpy array (cv2 image).
@@ -87,9 +97,11 @@ def get_cv2_image_from_base64_string(b64str: str) -> np.ndarray:
     except Exception as e:
         print("Error decoding base64 string:", e)
         return None
+
+
 def get_cropped_image_if_2_eyes(
-    image_path: Optional[str], image_base64_data: str
-) -> List[np.ndarray]:
+    image_path: str | None, image_base64_data: str
+) -> list[np.ndarray]:
     """
     Uses Haar Cascades to detect faces and eyes. Returns the cropped face image
     only if at least two eyes are detected, ensuring high quality feature extraction.
@@ -108,7 +120,7 @@ def get_cropped_image_if_2_eyes(
         os.path.join(BASE, "opencv", "haarcascades", "haarcascade_eye.xml")
     )
     if face_cascade.empty() or eye_cascade.empty():
-        print('Haar cascades missing!')
+        print("Haar cascades missing!")
         return []
     if image_path:
         img = cv2.imread(image_path)
@@ -126,5 +138,7 @@ def get_cropped_image_if_2_eyes(
         if len(eyes) >= 2:
             cropped_faces.append(roi_color)
     return cropped_faces
+
+
 if __name__ == "__main__":
     load_saved_artifacts()

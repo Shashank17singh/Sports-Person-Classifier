@@ -13,15 +13,13 @@
 
 ---
 
-##  Overview
+## Overview
 
 Engineered a system to classify images of well-known sports celebrities using classical computer vision and machine learning. Faces are detected and cropped with OpenCV's Haar Cascades, cleaned to keep only images where both eyes are clearly visible, and turned into feature vectors using a wavelet transform. A trained classifier then predicts which celebrity is in the photo - all served through a Flask API and a simple browser UI.
 
 ---
 
-
-
-###  Computer Vision Pipeline
+### Computer Vision Pipeline
 
 ```mermaid
 graph TD
@@ -30,7 +28,7 @@ graph TD
     B -->|Face Found| C{Eye Detection}
     C -->|2 Eyes Found| D(Crop Face Image)
     end
-    
+
     subgraph "Feature Extraction"
     D --> E(Wavelet Transform PyWavelets)
     E --> F[High-Frequency Edges]
@@ -39,35 +37,35 @@ graph TD
     G --> H
     H --> I[Combined Feature Vector]
     end
-    
+
     subgraph "Classification & API"
     I --> J{Trained SVM Model}
     J -->|Prediction| K[Celebrity ID]
     K --> L[Flask JSON Response]
     end
-    
+
     classDef io fill:#f9f0ff,stroke:#8a2be2,stroke-width:2px,color:#000;
     classDef core fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000;
     classDef logic fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#000;
-    
+
     class A,L io;
     class B,C,D,E,H core;
     class F,G,I,J,K logic;
 ```
 
-##  Pipeline
+## Pipeline
 
-| Stage | What Happens |
-|---|---|
-|  **Face & Eye Detection** | OpenCV Haar Cascades locate faces; images without two clearly visible eyes are discarded |
-|  **Feature Extraction** | A wavelet transform captures the key structural features of each cropped face |
-|  **Model Training** | Classifiers (SVM, Logistic Regression, Random Forest) are trained and tuned with `GridSearchCV` |
-|  **Prediction API** | A Flask server loads the saved model and serves predictions over REST |
-|  **Web UI** | A browser-based interface for uploading a photo and viewing the predicted celebrity |
+| Stage                    | What Happens                                                                                    |
+| ------------------------ | ----------------------------------------------------------------------------------------------- |
+| **Face & Eye Detection** | OpenCV Haar Cascades locate faces; images without two clearly visible eyes are discarded        |
+| **Feature Extraction**   | A wavelet transform captures the key structural features of each cropped face                   |
+| **Model Training**       | Classifiers (SVM, Logistic Regression, Random Forest) are trained and tuned with `GridSearchCV` |
+| **Prediction API**       | A Flask server loads the saved model and serves predictions over REST                           |
+| **Web UI**               | A browser-based interface for uploading a photo and viewing the predicted celebrity             |
 
 ---
 
-##  Tech Stack
+## Tech Stack
 
 **Computer Vision** - OpenCV (Haar Cascade face & eye detection)
 **Machine Learning** - Scikit-Learn (SVM · Logistic Regression · Random Forest) · PyWavelets · NumPy
@@ -76,7 +74,7 @@ graph TD
 
 ---
 
-##  Directory Structure
+## Directory Structure
 
 ```
 Sports-Person-Classifier/
@@ -96,7 +94,7 @@ Sports-Person-Classifier/
 
 ---
 
-##  Setup and Installation
+## Setup and Installation
 
 ### Prerequisites
 
@@ -135,25 +133,24 @@ Once the server is running, open `http://localhost:5000` in your browser and upl
 
 ---
 
-
 ---
 
 ## Deployment
+
 - **Dashboard URL:** https://sports-person-classifier-xi.vercel.app/
 
-
---- 
+---
 
 ## Deep Codebase Analysis
 
-| File | Purpose / Details |
-|---|---|
+| File                                          | Purpose / Details                                |
+| --------------------------------------------- | ------------------------------------------------ |
 | `model\sports_celebrity_classification.ipynb` | Core component logic and implementation details. |
-| `requirements.txt` | Core component logic and implementation details. |
-| `server\artifacts\class_dictionary.json` | Core component logic and implementation details. |
-| `server\server.py` | Core component logic and implementation details. |
-| `server\static\app.js` | Core component logic and implementation details. |
-| `server\static\dropzone.min.js` | Core component logic and implementation details. |
-| `server\util.py` | Core component logic and implementation details. |
-| `server\wavelet.py` | Core component logic and implementation details. |
-| `vercel.json` | Core component logic and implementation details. |
+| `requirements.txt`                            | Core component logic and implementation details. |
+| `server\artifacts\class_dictionary.json`      | Core component logic and implementation details. |
+| `server\server.py`                            | Core component logic and implementation details. |
+| `server\static\app.js`                        | Core component logic and implementation details. |
+| `server\static\dropzone.min.js`               | Core component logic and implementation details. |
+| `server\util.py`                              | Core component logic and implementation details. |
+| `server\wavelet.py`                           | Core component logic and implementation details. |
+| `vercel.json`                                 | Core component logic and implementation details. |
