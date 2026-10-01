@@ -1,6 +1,8 @@
+import cv2
 import numpy as np
 import pywt
-import cv2
+
+
 def w2d(img, mode="haar", level=1):
     """
     Applies a 2D discrete wavelet transform to extract features from an image.
