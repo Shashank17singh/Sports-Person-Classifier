@@ -2,6 +2,9 @@ import numpy as np
 import pywt
 import cv2
 def w2d(img, mode="haar", level=1):
+    """
+    Applies a 2D discrete wavelet transform to extract features from an image.
+    """
     imArray = img
     imArray = cv2.cvtColor(imArray, cv2.COLOR_RGB2GRAY)
     imArray = np.float32(imArray)

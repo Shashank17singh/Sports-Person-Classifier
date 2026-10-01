@@ -73,6 +73,9 @@ def load_saved_artifacts() -> None:
             __model = joblib.load(f)
     print("loading saved artifacts...done")
 def get_cv2_image_from_base64_string(b64str: str) -> np.ndarray:
+    """
+    Decodes a base64 string into a numpy array (cv2 image).
+    """
     try:
         if "," in b64str:
             encoded_data = b64str.split(",")[1]
