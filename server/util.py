@@ -94,7 +94,7 @@ def get_cv2_image_from_base64_string(b64str: str) -> np.ndarray:
         nparr = np.frombuffer(base64.b64decode(encoded_data), np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
         return img
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         print("Error decoding base64 string:", e)
         return None
 
