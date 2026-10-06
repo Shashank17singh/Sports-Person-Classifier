@@ -141,16 +141,4 @@ Once the server is running, open `http://localhost:5000` in your browser and upl
 
 ---
 
-## Deep Codebase Analysis
 
-| File                                          | Purpose / Details                                |
-| --------------------------------------------- | ------------------------------------------------ |
-| `model\sports_celebrity_classification.ipynb` | Core component logic and implementation details. |
-| `requirements.txt`                            | Core component logic and implementation details. |
-| `server\artifacts\class_dictionary.json`      | Core component logic and implementation details. |
-| `server\server.py`                            | Core component logic and implementation details. |
-| `server\static\app.js`                        | Core component logic and implementation details. |
-| `server\static\dropzone.min.js`               | Core component logic and implementation details. |
-| `server\util.py`                              | Core component logic and implementation details. |
-| `server\wavelet.py`                           | Core component logic and implementation details. |
-| `vercel.json`                                 | Core component logic and implementation details. |
