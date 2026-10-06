@@ -3,6 +3,7 @@ Flask API serving the sports celebrity face recognition application.
 Routes requests to the model for image classification.
 Architecture note: Model loading logic is decoupled into `util.py` for cleaner API routing.
 """
+
 import os
 import sys
 from typing import Any

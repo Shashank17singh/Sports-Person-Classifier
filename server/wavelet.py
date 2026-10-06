@@ -2,6 +2,7 @@
 Wavelet transform utility.
 Extracts high-frequency edge features from images using 2D discrete wavelet transforms (DWT).
 """
+
 import cv2
 import numpy as np
 import pywt

@@ -2,6 +2,7 @@
 Utility module for the sports celebrity classifier.
 Handles base64 image decoding, face/eye detection via Haar cascades, and feature extraction combining raw pixels with wavelet transforms.
 """
+
 import base64
 import json
 import os
