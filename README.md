@@ -15,7 +15,7 @@
 
 ## Overview
 
-A computer vision classifier that identifies sports celebrities. It uses OpenCV Haar Cascades and Wavelet Transforms to extract robust facial features, classifying them with models like SVM and Random Forest behind a Flask API.
+A computer vision classifier that identifies sports celebrities. It uses OpenCV Haar Cascades and Wavelet Transforms to extract facial features, then classifies them with models like SVM and Random Forest behind a Flask API.
 
 ---
 
