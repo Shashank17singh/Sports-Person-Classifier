@@ -1,17 +1,6 @@
-<div align="center">
-
 # Sports Person Classifier
 
-**A machine learning web app that identifies sports celebrities from a photo - wavelet-based feature extraction, OpenCV face detection, and a Flask API**
-
-[![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![OpenCV](https://img.shields.io/badge/OpenCV-Face%20Detection-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)](https://opencv.org/)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-SVM%20Classifier-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
-[![Flask](https://img.shields.io/badge/Flask-REST%20API-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
-
-</div>
-
----
+A machine learning web app that identifies sports celebrities from a photo, wavelet-based feature extraction, OpenCV face detection, and a Flask API.
 
 ## Overview
 

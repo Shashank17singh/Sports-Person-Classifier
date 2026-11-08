@@ -1,10 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <meta name="color-scheme" content="dark" />
     <meta name="darkreader-lock" />
-
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sports Person Classifier</title>
     <link
@@ -16,7 +15,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-light bg-light justify-content-center">
+    <nav class="navbar justify-content-center">
       <a class="navbar-brand" href="#">Sports Person Classifier</a>
     </nav>
 
@@ -34,7 +33,7 @@
               />
             </div>
             <div class="card-body text-center mt-4">
-              <h4 class="text-uppercase card-title">Lionel Messi</h4>
+              <h4 class="card-title">Lionel Messi</h4>
             </div>
           </div>
         </div>
@@ -50,7 +49,7 @@
               />
             </div>
             <div class="card-body text-center mt-4">
-              <h4 class="text-uppercase card-title">Maria Sharapova</h4>
+              <h4 class="card-title">Maria Sharapova</h4>
             </div>
           </div>
         </div>
@@ -66,7 +65,7 @@
               />
             </div>
             <div class="card-body text-center mt-4">
-              <h4 class="text-uppercase card-title">Roger Federer</h4>
+              <h4 class="card-title">Roger Federer</h4>
             </div>
           </div>
         </div>
@@ -82,7 +81,7 @@
               />
             </div>
             <div class="card-body text-center mt-4">
-              <h4 class="text-uppercase card-title">Serena Williams</h4>
+              <h4 class="card-title">Serena Williams</h4>
             </div>
           </div>
         </div>
@@ -98,7 +97,7 @@
               />
             </div>
             <div class="card-body text-center mt-4">
-              <h4 class="text-uppercase card-title">Virat Kohli</h4>
+              <h4 class="card-title">Virat Kohli</h4>
             </div>
           </div>
         </div>
@@ -110,11 +109,7 @@
             <div class="col-12 mx-auto">
               <form action="/" class="dropzone" id="dropzone">
                 <div class="dz-message needsclick">
-                  <img alt=""
-                    src="https://cdn-icons-png.flaticon.com/512/126/126477.png"
-                    width="50"
-                    height="50"
-                  /><br />
+                  <svg class="dz-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14.9A7 7 0 1 1 15.7 8h1.8a4.5 4.5 0 0 1 2.5 8.2"/><path d="M12 12v9"/><path d="m16 16-4-4-4 4"/></svg><br />
                   <span class="note needsclick"
                     >Drop files here or click to upload</span
                   >
@@ -133,8 +128,7 @@
 
         <div class="col-sm-8 error" id="error">
           <p>
-            Can't classify image. Classifier was not able to detect face and two
-            eyes properly
+            Could not classify this image. The model needs one clear face with both eyes visible.
           </p>
         </div>
 
